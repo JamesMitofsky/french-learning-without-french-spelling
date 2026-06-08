@@ -23,12 +23,14 @@ export default function App() {
         <h1 className="text-xl font-bold">
           {route === 'studio' ? 'Studio' : 'Sounds'}
         </h1>
-        <a
-          href={route === 'studio' ? '#/' : '#/studio'}
-          className="text-sm text-neutral-400 underline underline-offset-4"
-        >
-          {route === 'studio' ? 'Back to sounds' : 'Studio'}
-        </a>
+        {route === 'studio' && (
+          <a
+            href="#/"
+            className="text-sm text-neutral-400 underline underline-offset-4"
+          >
+            Back to sounds
+          </a>
+        )}
       </header>
 
       <main className="flex-1">

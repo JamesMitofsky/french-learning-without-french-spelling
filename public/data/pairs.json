@@ -1,1 +1,82 @@
-[]
+[
+  {
+    "id": "035bf80b-8340-477d-a555-36d1df35a319",
+    "label": "Again",
+    "audioFile": "audio/035bf80b-8340-477d-a555-36d1df35a319.webm"
+  },
+  {
+    "id": "66e963ae-cd1f-4838-818c-b65d4d2c6417",
+    "label": "Slowly",
+    "audioFile": "audio/66e963ae-cd1f-4838-818c-b65d4d2c6417.webm"
+  },
+  {
+    "id": "e3fcbf24-ec81-49f8-9dfc-ed99101cba22",
+    "label": "That",
+    "audioFile": "audio/e3fcbf24-ec81-49f8-9dfc-ed99101cba22.webm"
+  },
+  {
+    "id": "28126624-07d2-4b30-ba41-76bbf82eb1b7",
+    "label": "How're you?",
+    "audioFile": "audio/28126624-07d2-4b30-ba41-76bbf82eb1b7.webm"
+  },
+  {
+    "id": "77e7b76c-a048-449e-8549-10dffdf75c66",
+    "label": "What?",
+    "audioFile": "audio/77e7b76c-a048-449e-8549-10dffdf75c66.webm"
+  },
+  {
+    "id": "51fa05da-e6b3-408a-8e79-7577b6977ad5",
+    "label": "Gotcha",
+    "audioFile": "audio/51fa05da-e6b3-408a-8e79-7577b6977ad5.webm"
+  },
+  {
+    "id": "d4ce7cef-8976-496a-814b-624d4d1fa44f",
+    "label": "Like... (eg. that is *like* that)",
+    "audioFile": "audio/d4ce7cef-8976-496a-814b-624d4d1fa44f.webm"
+  },
+  {
+    "id": "f4c78ad6-2d2e-4db0-97e2-303e4f5c71e7",
+    "label": "You go / your turn",
+    "audioFile": "audio/f4c78ad6-2d2e-4db0-97e2-303e4f5c71e7.webm"
+  },
+  {
+    "id": "cf252ca8-cc2d-48b3-92c2-601f7d920a32",
+    "label": "Let's go!",
+    "audioFile": "audio/cf252ca8-cc2d-48b3-92c2-601f7d920a32.webm"
+  },
+  {
+    "id": "efba6a3b-5bd5-4460-9f8c-49aa91cea564",
+    "label": "Because....",
+    "audioFile": "audio/efba6a3b-5bd5-4460-9f8c-49aa91cea564.webm"
+  },
+  {
+    "id": "4de7cf4a-9a45-437e-baa3-e2ef60f88b78",
+    "label": "For blank spaces; eg. \"And then she said,  nanananana\"",
+    "audioFile": "audio/4de7cf4a-9a45-437e-baa3-e2ef60f88b78.webm"
+  },
+  {
+    "id": "077a4653-dd56-4251-b843-0f17112db661",
+    "label": "Uhhhhh (filler sound)",
+    "audioFile": "audio/077a4653-dd56-4251-b843-0f17112db661.webm"
+  },
+  {
+    "id": "2d2b1927-2f87-4230-b7f1-ac9d07bfa5f4",
+    "label": "And",
+    "audioFile": "audio/2d2b1927-2f87-4230-b7f1-ac9d07bfa5f4.webm"
+  },
+  {
+    "id": "b13a67ad-6252-47cb-9540-f3ee781805aa",
+    "label": "Nevermind / we can drop it",
+    "audioFile": "audio/b13a67ad-6252-47cb-9540-f3ee781805aa.webm"
+  },
+  {
+    "id": "cc201a90-803c-42af-8ed9-9319ddbb9af4",
+    "label": "No, people say _________",
+    "audioFile": "audio/cc201a90-803c-42af-8ed9-9319ddbb9af4.webm"
+  },
+  {
+    "id": "ddcee760-351b-4f1b-b979-55b3a7501c77",
+    "label": "You can _______",
+    "audioFile": "audio/ddcee760-351b-4f1b-b979-55b3a7501c77.webm"
+  }
+]

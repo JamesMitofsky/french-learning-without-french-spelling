@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { PlayerView } from './components/PlayerView'
 import { StudioView } from './components/StudioView'
+import { Switch } from './components/ui/switch'
 
 type Route = 'player' | 'studio'
 
@@ -10,6 +11,7 @@ function currentRoute(): Route {
 
 export default function App() {
   const [route, setRoute] = useState<Route>(currentRoute)
+  const [showLabels, setShowLabels] = useState(true)
 
   useEffect(() => {
     const onHash = () => setRoute(currentRoute())
@@ -23,18 +25,27 @@ export default function App() {
         <h1 className="text-xl font-bold">
           {route === 'studio' ? 'Studio' : 'Sounds'}
         </h1>
-        {route === 'studio' && (
+        {route === 'studio' ? (
           <a
             href="#/"
             className="text-sm text-neutral-400 underline underline-offset-4"
           >
             Back to sounds
           </a>
+        ) : (
+          <label className="flex cursor-pointer items-center gap-2 text-sm text-neutral-400">
+            <span>Show labels</span>
+            <Switch checked={showLabels} onCheckedChange={setShowLabels} />
+          </label>
         )}
       </header>
 
       <main className="flex-1">
-        {route === 'studio' ? <StudioView /> : <PlayerView />}
+        {route === 'studio' ? (
+          <StudioView />
+        ) : (
+          <PlayerView showLabels={showLabels} />
+        )}
       </main>
     </div>
   )

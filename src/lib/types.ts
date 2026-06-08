@@ -9,6 +9,8 @@ export const PairSchema = z.object({
   label: z.string().min(1),
   // path relative to the data manifest, e.g. "audio/abc123.webm"
   audioFile: z.string().min(1),
+  // optional phosphor icon name (see src/lib/icons.tsx) shown on the play circle
+  icon: z.string().optional(),
 })
 
 export const PairsManifestSchema = z.array(PairSchema)

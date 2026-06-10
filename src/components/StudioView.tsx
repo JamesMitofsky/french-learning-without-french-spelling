@@ -31,7 +31,16 @@ export function StudioView() {
     setError(null)
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true })
-      const recorder = new MediaRecorder(stream)
+      // Prefer AAC/MP4 — the only format iOS Safari can play back. Chrome falls
+      // through to its WebM default, which scripts/transcode-audio.mjs converts
+      // to .m4a before publishing.
+      const preferred = ['audio/mp4', 'audio/aac'].find(
+        (m) => MediaRecorder.isTypeSupported?.(m),
+      )
+      const recorder = new MediaRecorder(
+        stream,
+        preferred ? { mimeType: preferred } : undefined,
+      )
       chunksRef.current = []
       recorder.ondataavailable = (e) => {
         if (e.data.size > 0) chunksRef.current.push(e.data)
@@ -122,7 +131,9 @@ export function StudioView() {
         <code className="text-neutral-200">data-export.zip</code> into{' '}
         <code className="text-neutral-200">public/data/</code> — it replaces{' '}
         <code className="text-neutral-200">pairs.json</code> and adds the new
-        audio files. Commit and push.
+        audio files. Then run{' '}
+        <code className="text-neutral-200">pnpm transcode-audio</code> so clips
+        play on iOS, and commit and push.
       </div>
 
       <button

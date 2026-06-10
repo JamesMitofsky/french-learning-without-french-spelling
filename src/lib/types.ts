@@ -7,7 +7,7 @@ import { z } from 'zod'
 export const PairSchema = z.object({
   id: z.string().min(1),
   label: z.string().min(1),
-  // path relative to the data manifest, e.g. "audio/abc123.webm"
+  // path relative to the data manifest, e.g. "audio/abc123.m4a"
   audioFile: z.string().min(1),
   // optional phosphor icon name (see src/lib/icons.tsx) shown on the play circle
   icon: z.string().optional(),

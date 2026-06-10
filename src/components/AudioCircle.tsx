@@ -19,24 +19,32 @@ export function AudioCircle({ label, src, isPlaying, onToggle, onEnded, icon, sh
   const audioRef = useRef<HTMLAudioElement>(null)
   const Meaning = icon ? ICONS[icon] : undefined
 
-  // Drive the element from the parent-owned isPlaying flag so only one
-  // circle ever plays at a time.
+  // When this circle is no longer the active one (another was tapped, or it
+  // finished), stop and rewind it. Starting playback is NOT done here: iOS
+  // Safari only honours play() called directly inside the tap handler, so the
+  // effect would run too late in the gesture and be blocked.
   useEffect(() => {
     const audio = audioRef.current
-    if (!audio) return
-    if (isPlaying) {
-      audio.play().catch(() => onEnded())
-    } else {
-      audio.pause()
+    if (!audio || isPlaying) return
+    audio.pause()
+    audio.currentTime = 0
+  }, [isPlaying])
+
+  function handleClick() {
+    const audio = audioRef.current
+    if (audio && !isPlaying) {
+      // Kick off playback synchronously within the user gesture so iOS allows it.
       audio.currentTime = 0
+      audio.play().catch(() => onEnded())
     }
-  }, [isPlaying, onEnded])
+    onToggle()
+  }
 
   return (
     <div className="flex flex-col items-center gap-3">
       <button
         type="button"
-        onClick={onToggle}
+        onClick={handleClick}
         aria-label={isPlaying ? `Pause ${label}` : `Play ${label}`}
         className={`flex h-28 w-28 items-center justify-center rounded-full transition-transform active:scale-95 ${
           isPlaying ? 'bg-emerald-500 text-black' : 'bg-neutral-800 text-neutral-100'
@@ -55,7 +63,7 @@ export function AudioCircle({ label, src, isPlaying, onToggle, onEnded, icon, sh
           {label}
         </span>
       )}
-      <audio ref={audioRef} src={src} onEnded={onEnded} preload="none" />
+      <audio ref={audioRef} src={src} onEnded={onEnded} preload="metadata" playsInline />
     </div>
   )
 }
